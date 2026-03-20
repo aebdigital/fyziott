@@ -143,7 +143,7 @@ const SERVICES: Service[] = [
     iconColor: "text-[#003a8c]"
   },
   {
-    title: "Terapia vestibulárnych porúch - VERTIGO",
+    title: "Terapia vestibulárnych porúch - Vertigo",
     description: "Najčastejšie sa vyskytuje medzi 50 a 70 rokom života (ženy sú postihnuté 2x častejšie ako muži).",
     bulletPoints: [
       "Spôsobené uvoľnením otolytov (kryštálikov v kanálikoch) a ich následnou sedimentáciou.",
@@ -456,13 +456,13 @@ export default function Home() {
               <span className="text-sm font-bold tracking-[0.2em] text-[#003a8c] uppercase mb-4 block">Spoznajte ma</span>
               <h2 className="text-5xl font-bold text-[#003a8c] mb-8">O mne</h2>
               <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
-                <p>
-                  Fyzioterapii sa venujem od r. 2010. Mojou najobľúbenejšou diagnózou sú poruchy pohybového aparátu, poruchy platničiek a poruchy vestibulárneho aparátu **VERTIGO**.
+                 <p>
+                  Fyzioterapii sa venujem od r. 2010. Mojou najobľúbenejšou diagnózou sú poruchy pohybového aparátu, poruchy platničiek a poruchy vestibulárneho aparátu Vertigo.
                 </p>
                 <p>
                   Rada ponúkam klientom starostlivosť takú, akú by som sama vyžadovala. Fyzioterapia nie je len o uvoľnení bolesti, ale aj o dôkladnom vypočutí klienta.
                 </p>
-                <p className="bg-[#e4ffec] p-8 rounded-2xl border-l-4 border-green-500 font-bold italic text-[#003a8c]">
+                <p className="text-[#003a8c] font-bold italic text-xl border-l-4 border-[#003a8c] pl-6 py-2">
                   "Moja práca nie je práca, ale vášeň a hobby."
                 </p>
               </div>
