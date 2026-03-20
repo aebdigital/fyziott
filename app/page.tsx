@@ -707,7 +707,12 @@ export default function Home() {
                   </div>
                   <span className="text-2xl font-bold">FyzioTT</span>
                 </div>
-                <p className="text-blue-100/50 text-sm italic">"Moja práca nie je práca, ale vášeň a hobby."</p>
+                <div className="text-white/80 text-sm space-y-1.5 mt-4">
+                  <p className="font-bold text-white">Mgr. Barbora Bayerová</p>
+                  <p>Ulica Bočná 1851/12, 917 02 Trnava</p>
+                  <p className="hover:text-white transition-colors cursor-pointer">+421 908 028 601</p>
+                  <p className="hover:text-white transition-colors cursor-pointer">fyziott@gmail.com</p>
+                </div>
               </div>
               <div>
                 <p className="font-bold text-sm tracking-widest uppercase text-blue-100/30 mb-2">Tvorba stránky</p>
@@ -726,7 +731,7 @@ export default function Home() {
                  href="https://aebdigital.sk" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="text-[10px] text-blue-100/20 uppercase tracking-[0.2em] hover:text-white transition-colors no-underline"
+                 className="text-xs text-white/50 hover:text-white font-bold uppercase tracking-[0.2em] transition-all no-underline"
                >
                  Tvorba webu - AEB Digital
                </a>
