@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   Footprints, 
   Waves, 
@@ -19,7 +19,7 @@ import {
   Quote
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
 // --- Types ---
@@ -172,16 +172,34 @@ const SLIDER_IMAGES = [
   "/72327360_2330981777119794_5927892305498341376_n.jpg"
 ];
 
+const HERO_IMAGES = [
+  "/59994593_2227150874169552_8498053000881766400_n.jpg",
+  "/59051901_2223437327874240_3056874236271394816_n.jpg"
+];
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("SMsystém");
   const [scrolled, setScrolled] = useState(false);
   const [sliderIdx, setSliderIdx] = useState(0);
+  const [heroIdx, setHeroIdx] = useState(0);
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+
+    const interval = setInterval(() => {
+      setHeroIdx((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
     
     const lenis = new Lenis();
     function raf(time: number) {
@@ -192,6 +210,7 @@ export default function Home() {
     return () => {
       lenis.destroy();
       window.removeEventListener('scroll', handleScroll);
+      clearInterval(interval);
     };
   }, []);
 
@@ -239,16 +258,28 @@ export default function Home() {
       </header>
 
       {/* --- Hero Section --- */}
-      <section className="relative h-screen flex items-center pt-20 overflow-hidden">
+      <section ref={heroRef} className="relative h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/59994593_2227150874169552_8498053000881766400_n.jpg" 
-            alt="Hero Background" 
-            fill 
-            className="object-cover brightness-[0.7] contrast-[1.1]"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={heroIdx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              style={{ y }}
+              className="absolute inset-0"
+            >
+              <Image 
+                src={HERO_IMAGES[heroIdx]} 
+                alt="Hero Background" 
+                fill 
+                className="object-cover brightness-[0.7] contrast-[1.1] scale-110"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent pointer-events-none" />
         </div>
         
         <div className="relative z-10 max-w-[90vw] mx-auto px-6 w-full">
@@ -419,11 +450,7 @@ export default function Home() {
             <div className="lg:col-span-5">
                <div className="relative group">
                   <div className="aspect-[3/4] bg-white rounded-[40px] overflow-hidden shadow-2xl border border-gray-100 p-8 flex flex-col justify-between">
-                     <div className="text-center">
-                        <span className="text-red-500 font-black text-xs uppercase tracking-widest mb-2 block">Novinka</span>
-                        <h3 className="text-3xl font-bold text-[#003a8c] mb-2 leading-tight">Indikácie<br/><span className="text-red-500">ShockWave</span> Dual Power</h3>
-                     </div>
-                     <div className="relative flex-grow my-8 flex items-center justify-center overflow-hidden rounded-2xl">
+                     <div className="relative flex-grow flex items-center justify-center overflow-hidden rounded-2xl">
                         <Image 
                           src={SLIDER_IMAGES[sliderIdx]} 
                           alt="Therapy" 
@@ -432,7 +459,7 @@ export default function Home() {
                           key={sliderIdx}
                         />
                      </div>
-                     <div className="flex justify-between items-center text-[#003a8c]">
+                     <div className="flex justify-between items-center text-[#003a8c] mt-4">
                         <button 
                           onClick={() => setSliderIdx((prev) => (prev - 1 + SLIDER_IMAGES.length) % SLIDER_IMAGES.length)}
                           className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
@@ -452,9 +479,6 @@ export default function Home() {
                         </button>
                      </div>
                   </div>
-               </div>
-               <div className="mt-8 p-6 bg-blue-50/50 rounded-3xl border border-blue-100 text-[#003a8c] text-[13px] font-bold text-center">
-                   Moderná liečba s bezkonkurenčnými výsledkami.
                </div>
             </div>
           </div>
@@ -588,13 +612,20 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="bg-white/10 rounded-[40px] p-8 border border-white/10 flex flex-col justify-center items-center text-center">
-                 <Calendar className="w-16 h-16 mb-6 text-blue-200" />
-                 <h3 className="text-2xl font-bold mb-4">Máte otázky?</h3>
-                 <p className="text-blue-100/70 mb-8 max-w-xs">Poraďte sa so mnou o svojich ťažkostiach a nájdime riešenie spoločne.</p>
-                 <button className="w-full bg-white text-[#003a8c] py-5 rounded-full font-bold hover:scale-[1.02] transition-transform shadow-2xl">
-                    Dohodnúť si termín
-                 </button>
+              <div className="bg-white/5 rounded-[40px] overflow-hidden border border-white/10 h-[450px] relative group">
+                 <iframe 
+                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1314.9392261208034!2d17.5843105!3d48.377508099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b5fb02136a8a3%3A0xb38a048970b795ee!2sFyzio%20TT!5e0!3m2!1ssk!2ssk!4v1711000000000!5m2!1ssk!2ssk" 
+                   width="100%" 
+                   height="100%" 
+                   style={{ border: 0 }} 
+                   allowFullScreen 
+                   loading="lazy" 
+                   referrerPolicy="no-referrer-when-downgrade"
+                   className="grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                 />
+                 <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-white/20 pointer-events-none">
+                    Bočná 12, Trnava
+                 </div>
               </div>
             </div>
           </div>
