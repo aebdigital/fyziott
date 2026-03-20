@@ -223,8 +223,7 @@ const TESTIMONIALS: Testimonial[] = [
 const SLIDER_IMAGES = [
   "/PHOTO-2025-03-19-17-57-52.jpg",
   "/PHOTO-2025-03-19-17-57-52-2.jpg",
-  "/PHOTO-2025-03-19-17-57-52-3.jpg",
-  "/72327360_2330981777119794_5927892305498341376_n.jpg"
+  "/PHOTO-2025-03-19-17-57-52-3.jpg"
 ];
 
 const HERO_IMAGES = [
@@ -679,7 +678,7 @@ export default function Home() {
                    allowFullScreen 
                    loading="lazy" 
                    referrerPolicy="no-referrer-when-downgrade"
-                   className="grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                   className="transition-all duration-700"
                  />
                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-white/20 pointer-events-none">
                     Bočná 12, Trnava
