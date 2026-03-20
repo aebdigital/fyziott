@@ -127,7 +127,7 @@ const SERVICES: Service[] = [
     icon: RazovaVlnaIcon,
     color: "bg-[#ffffe0]",
     iconBg: "bg-[#ffee2f]",
-    iconColor: "text-[#003a8c]"
+    iconColor: "text-[#002a66]"
   },
   {
     title: "SM systém",
@@ -140,7 +140,7 @@ const SERVICES: Service[] = [
     icon: SMSystemIcon,
     color: "bg-[#e1f6ff]",
     iconBg: "bg-[#b2eafe]",
-    iconColor: "text-[#003a8c]"
+    iconColor: "text-[#002a66]"
   },
   {
     title: "Terapia vestibulárnych porúch - Vertigo",
@@ -278,7 +278,7 @@ export default function Home() {
         <nav className="max-w-[90vw] mx-auto w-full px-6 flex items-center justify-between">
           <a href="#" className="flex items-center gap-4 no-underline group shrink-0 relative py-2">
             <div className={cn(
-              "relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 transition-all duration-300 shadow-xl bg-white flex-shrink-0 translate-y-2 sm:translate-y-4",
+              "relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 transition-all duration-300 shadow-2xl bg-white flex-shrink-0 translate-y-3 sm:translate-y-5",
               scrolled ? "border-[#003a8c]/10 scale-90" : "border-white/40 scale-100"
             )}>
               <Image 
