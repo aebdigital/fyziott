@@ -57,7 +57,7 @@ const CATEGORIES = [
 ];
 
 const PodologickaIcon = () => (
-  <svg className="w-8 h-8" viewBox="0 0 76 76" fill="currentColor">
+  <svg className="w-11 h-11" viewBox="0 0 76 76" fill="currentColor">
     <path d="M 44.5,18.5C 45.8807,18.5 47,20.2909 47,22.5C 47,24.7091 45.8807,26.5 44.5,26.5C 43.1193,26.5 42,24.7091 42,22.5C 42,20.2909 43.1193,18.5 44.5,18.5 Z M 39.25,19.75C 40.0784,19.75 40.75,20.8693 40.75,22.25C 40.75,23.6307 40.0784,24.75 39.25,24.75C 38.4216,24.75 37.75,23.6307 37.75,22.25C 37.75,20.8693 38.4216,19.75 39.25,19.75 Z M 35,21C 35.8284,21 36.5,21.8954 36.5,23C 36.5,24.1046 35.8284,25 35,25C 34.1716,25 33.5,24.1046 33.5,23C 33.5,21.8954 34.1716,21 35,21 Z M 31.5,23.25C 32.3284,23.25 33,24.1454 33,25.25C 33,26.3546 32.3284,27.25 31.5,27.25C 30.6716,27.25 30,26.3546 30,25.25C 30,24.1454 30.6716,23.25 31.5,23.25 Z M 28.75,26.75C 29.3023,26.75 29.75,27.4216 29.75,28.25C 29.75,29.0784 29.3023,29.75 28.75,29.75C 28.1977,29.75 27.75,29.0784 27.75,28.25C 27.75,27.4216 28.1977,26.75 28.75,26.75 Z M 34,27.5C 43,23 49.2428,31.3086 42,40C 37,46 51.1334,55.5428 42,57.5C 35,59 37.1925,49.8978 35,46C 26,30 34,27.5 34,27.5 Z " />
   </svg>
 );
@@ -276,18 +276,22 @@ export default function Home() {
         scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100" : "bg-transparent border-transparent"
       )}>
         <nav className="max-w-[90vw] mx-auto w-full px-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image 
-              src="/images/logo.png" 
-              alt="Logo" 
-              width={40} 
-              height={40} 
-              className={cn("w-10 h-10 object-contain", !scrolled && "brightness-0 invert")} 
-            />
-            <span className={cn("text-xl font-bold tracking-tight", scrolled ? "text-[#003a8c]" : "text-white")}>
+          <a href="#" className="flex items-center gap-3 no-underline group shrink-0">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-white/50 transition-all shadow-sm bg-white">
+              <Image 
+                src="/logo_barbora.png" 
+                alt="Logo" 
+                fill
+                className="object-cover p-1" 
+              />
+            </div>
+            <span className={cn(
+              "text-2xl font-bold tracking-tight transition-colors hidden sm:block",
+              scrolled ? "text-[#003a8c]" : "text-white"
+            )}>
               FyzioTT
             </span>
-          </div>
+          </a>
           <div className="hidden lg:flex items-center gap-8">
             {["SLUŽBY", "O MNE", "RECENZIE", "GALÉRIA", "KONTAKT"].map((item) => (
               <a 
@@ -695,7 +699,9 @@ export default function Home() {
            <div className="flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
               <div>
                 <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
-                  <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white shadow-sm border border-white/10">
+                    <Image src="/logo_barbora.png" alt="Logo" fill className="object-cover p-1" />
+                  </div>
                   <span className="text-2xl font-bold">FyzioTT</span>
                 </div>
                 <p className="text-blue-100/50 text-sm italic">"Moja práca nie je práca, ale vášeň a hobby."</p>
