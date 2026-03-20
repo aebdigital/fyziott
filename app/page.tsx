@@ -712,11 +712,16 @@ export default function Home() {
               <a href="#" className="hover:text-white transition-colors">Ochrana osobných údajov</a>
            </div>
 
-           <div className="mt-8 flex justify-center">
-              <button className="text-[10px] text-blue-100/20 uppercase tracking-[0.2em] hover:text-white transition-colors">
-                Revisit consent
-              </button>
-           </div>
+            <div className="mt-8 flex justify-center">
+               <a 
+                 href="https://aebdigital.sk" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="text-[10px] text-blue-100/20 uppercase tracking-[0.2em] hover:text-white transition-colors no-underline"
+               >
+                 Tvorba webu - AEB Digital
+               </a>
+            </div>
         </div>
       </footer>
     </div>
