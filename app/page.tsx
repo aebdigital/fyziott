@@ -440,7 +440,7 @@ export default function Home() {
       <section className="py-24 bg-white" id="o-mne">
         <div className="max-w-[90vw] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-square max-w-md mx-auto lg:mx-0">
+            <div className="relative aspect-[4/3] w-full mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-[#ffdfe7] rounded-[60px] rotate-6 scale-95" />
               <div className="relative h-full w-full bg-gray-100 rounded-[60px] overflow-hidden shadow-2xl">
                  <Image 
