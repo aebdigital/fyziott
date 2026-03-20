@@ -714,10 +714,7 @@ export default function Home() {
                   <p className="hover:text-white transition-colors cursor-pointer">fyziott@gmail.com</p>
                 </div>
               </div>
-              <div>
-                <p className="font-bold text-sm tracking-widest uppercase text-blue-100/30 mb-2">Tvorba stránky</p>
-                <p className="text-lg font-bold">AEB Digital</p>
-              </div>
+
            </div>
            
            <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold text-blue-100/30 uppercase tracking-widest">
