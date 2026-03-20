@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #003a8c; /* Navy blue from hero */
+  --secondary: #e6f7ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom styles for the service cards */
+.card-podologia { background-color: #ffe4e6; }
+.card-razova { background-color: #fefce8; }
+.card-sm { background-color: #e0f2fe; }
+
+.section-title {
+  @apply text-4xl font-bold text-[#003a8c] mb-8 text-center;
+}
+
+.chip {
+  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer mb-2 mr-2 inline-block shadow-sm;
+}
