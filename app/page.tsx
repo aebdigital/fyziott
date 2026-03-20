@@ -276,8 +276,11 @@ export default function Home() {
         scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100" : "bg-transparent border-transparent"
       )}>
         <nav className="max-w-[90vw] mx-auto w-full px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 no-underline group shrink-0">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-white/50 transition-all shadow-sm bg-white">
+          <a href="#" className="flex items-center gap-4 no-underline group shrink-0 relative py-2">
+            <div className={cn(
+              "relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 transition-all duration-300 shadow-xl bg-white flex-shrink-0 translate-y-2 sm:translate-y-4",
+              scrolled ? "border-[#003a8c]/10 scale-90" : "border-white/40 scale-100"
+            )}>
               <Image 
                 src="/logo_barbora.png" 
                 alt="Logo" 
@@ -286,7 +289,7 @@ export default function Home() {
               />
             </div>
             <span className={cn(
-              "text-2xl font-bold tracking-tight transition-colors hidden sm:block",
+              "text-3xl font-extrabold tracking-tighter transition-colors hidden sm:block",
               scrolled ? "text-[#003a8c]" : "text-white"
             )}>
               FyzioTT
